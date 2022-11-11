@@ -1,0 +1,42 @@
+[
+    {
+        "name": "thamaraiselvam/mysql-import",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thamaraiselvam/mysql-import.git",
+            "reference": "a69f1c36d9bc3dd751235b1f0f193c749c8aa7fb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thamaraiselvam/mysql-import/zipball/a69f1c36d9bc3dd751235b1f0f193c749c8aa7fb",
+            "reference": "a69f1c36d9bc3dd751235b1f0f193c749c8aa7fb",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0"
+        },
+        "time": "2018-08-03T09:45:59+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Thamaraiselvam\\MysqlImport\\": "/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "thamaraiselvam",
+                "email": "thamaraiselvam@live.com",
+                "homepage": "https://thamaraiselvam.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Import .sql file into a database using mysqli"
+    }
+]

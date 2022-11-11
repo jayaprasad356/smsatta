@@ -1,0 +1,5 @@
+{
+    "require": {
+        "thamaraiselvam/mysql-import": "^1.0"
+    }
+}
