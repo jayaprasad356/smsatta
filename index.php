@@ -67,14 +67,13 @@
                 </select>
                 <small id="buyerhelp" class="form-text text-muted">Select Source from you bought the script</small>
             </div>
-            
-<!--             
+                       
             <div class="form-group">
                 <label for="exampleInputEmail1">Purchase Code</label>
                 <input type="text" name="purchase_code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Purchase Code" required>
                 <small id="emailHelp" class="form-text text-muted">Enter purchase code you received by codecanyon or codegente team, If you not received any code on direct purchase contact us <a href="mailto:betplay@codegente.com">betplay@codegente.com</a></small>
-            </div> -->
-            
+            </div>
+
             <div class="form-group">
                 <label for="exampleInputEmail1">Installation Domain</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $_SERVER['SERVER_NAME']; ?>" aria-describedby="emailHelp" disabled>
