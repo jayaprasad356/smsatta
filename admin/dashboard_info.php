@@ -59,7 +59,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
 
 <!-- Modal New User -->
-<div class="modal fade" id="adduser">
+<div class="modal fade" id="addInfo">
         <div class="modal-dialog">
           <div class="modal-content">
           
@@ -151,7 +151,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                 
                 <form class="forms-sample" method="get" enctype="multipart/form-data" autocomplete="off">
                                   
-                  <p>Search with Name, Mobile number, Email, Wallet Balance OR Referral Code</p>
+                  <p>Search with Title,Description</p>
                     
                    <div class="row">
                        <div class="col-sm-8">
