@@ -94,10 +94,6 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                 <?php
                     if(isset($_POST['btnAdd'])){
                        
-                       extract($_REQUEST);
-                       
-                       $code = rand(10000,999999);
-                       
                        $walletAdd = mysqli_query($con,"INSERT INTO `dashboard_info` (`title`, `description`) VALUES
                        ('$title','$description')
                        ");
@@ -135,7 +131,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 </section>
 
     <!-- Main content -->
-    <section class="content">
+  <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -145,7 +141,6 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                     <a href="#addinfo" data-toggle="modal" class="btn btn-primary">Add New Info</a>
                 </h3>
                 
-                <br>
                 <br>
                 
                 <form class="forms-sample" method="get" enctype="multipart/form-data" autocomplete="off">
@@ -179,21 +174,31 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                     </tr>
                   </thead>
                   <tbody>
-                  <?php $i = (($page-1)*10)+1; while ($row = fetch($result)) { 
-                                            
-                                            
-                                            ?>
-                    <tr>
-                      <td><?php echo $i; ?></td>
-                      <td><?php echo $row['title']; ?></td>
-                      <td><?php echo $row['description']; ?></td>                  
-                      <td>
-                          <a href="#editInfo<?php echo $row['sn']; ?>" data-toggle="modal" class="btn btn-danger btn-md"class="btn btn-sm btn-danger">Edit</a>
-                      </td>
+                      <?php $i = (($page-1)*10)+1; while ($row = fetch($result)) { 
+                                                
+                                                
+                                                ?>
+                        <tr>
+                          <td><?php echo $i; ?></td>
+                          <td><?php echo $row['title']; ?></td>
+                          <td><?php echo $row['description']; ?></td>                  
+                          <td>
+                              <a href="#editInfo<?php echo $row['sn']; ?>" data-toggle="modal" class="btn btn-danger btn-md"class="btn btn-sm btn-danger">Edit</a>
+                          </td>
+                        </tr>
+                      <?php
+                      $i++;  
+                      }?>
+                  </tbody>
+                </table>
                       
-              </div>
-              </div>
-              </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
 
 <!--Add Points-->
     <div class="modal fade" id="editInfo<?php echo $row['sn']; ?>">
@@ -243,58 +248,41 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
           </div>
         </div>
     </div>
-                    </tr>
-                    <?php
-                    $i++;  
-                    }?>
-                  </tbody>
-                </table>
                 
-                <?php if (ceil($total_pages / $num_results_on_page) > 0): 
-                                    
-                                     ?>
-                                    <ul class="pagination">
-                                    	<?php if ($page > 1): ?>
-                                    	<li class="prev page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page-1 ?><?php echo $search_url_add; ?>">Prev</a></li>
-                                    	<?php endif; ?>
-                                    
-                                    	<?php if ($page > 3): ?>
-                                    	<li class="start page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=1<?php echo $search_url_add; ?>">1</a></li>
-                                    	<li class="dots page-item">...</li>
-                                    	<?php endif; ?>
-                                    
-                                    	<?php if ($page-2 > 0): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page-2 ?><?php echo $search_url_add; ?>"><?php echo $page-2 ?></a></li><?php endif; ?>
-                                    	<?php if ($page-1 > 0): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page-1 ?><?php echo $search_url_add; ?>"><?php echo $page-1 ?></a></li><?php endif; ?>
-                                    
-                                    	<li class="currentpage page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page ?><?php echo $search_url_add; ?>"><?php echo $page ?></a></li>
-                                    
-                                    	<?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page+1 ?><?php echo $search_url_add; ?>"><?php echo $page+1 ?></a></li><?php endif; ?>
-                                    	<?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page+2 ?><?php echo $search_url_add; ?>"><?php echo $page+2 ?></a></li><?php endif; ?>
-                                    
-                                    	<?php if ($page < ceil($total_pages / $num_results_on_page)-2): ?>
-                                    	<li class="dots page-item">...</li>
-                                    	<li class="end page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo ceil($total_pages / $num_results_on_page) ?><?php echo $search_url_add; ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
-                                    	<?php endif; ?>
-                                    
-                                    	<?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
-                                    	<li class="next page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page+1 ?><?php echo $search_url_add; ?>">Next</a></li>
-                                    	<?php endif; ?>
-                                    </ul>
-                                    <?php endif; ?>
-                                    
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    
+        <?php if (ceil($total_pages / $num_results_on_page) > 0): 
+                            
+                              ?>
+                            <ul class="pagination">
+                              <?php if ($page > 1): ?>
+                              <li class="prev page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page-1 ?><?php echo $search_url_add; ?>">Prev</a></li>
+                              <?php endif; ?>
+                            
+                              <?php if ($page > 3): ?>
+                              <li class="start page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=1<?php echo $search_url_add; ?>">1</a></li>
+                              <li class="dots page-item">...</li>
+                              <?php endif; ?>
+                            
+                              <?php if ($page-2 > 0): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page-2 ?><?php echo $search_url_add; ?>"><?php echo $page-2 ?></a></li><?php endif; ?>
+                              <?php if ($page-1 > 0): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page-1 ?><?php echo $search_url_add; ?>"><?php echo $page-1 ?></a></li><?php endif; ?>
+                            
+                              <li class="currentpage page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page ?><?php echo $search_url_add; ?>"><?php echo $page ?></a></li>
+                            
+                              <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page+1 ?><?php echo $search_url_add; ?>"><?php echo $page+1 ?></a></li><?php endif; ?>
+                              <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page+2 ?><?php echo $search_url_add; ?>"><?php echo $page+2 ?></a></li><?php endif; ?>
+                            
+                              <?php if ($page < ceil($total_pages / $num_results_on_page)-2): ?>
+                              <li class="dots page-item">...</li>
+                              <li class="end page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo ceil($total_pages / $num_results_on_page) ?><?php echo $search_url_add; ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+                              <?php endif; ?>
+                            
+                              <?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
+                              <li class="next page-item"><a class='page-link' href="<?php echo $_PHP_SELF; ?>?page=<?php echo $page+1 ?><?php echo $search_url_add; ?>">Next</a></li>
+                              <?php endif; ?>
+                            </ul>
+                            <?php endif; ?>
+                            
+
+
         
 <?php 
 
