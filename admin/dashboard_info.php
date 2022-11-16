@@ -182,7 +182,6 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                   <tbody>
                   <?php $i = (($page-1)*10)+1; while ($row = fetch($result)) { 
                                             
-                                            $result = mysqli_query($con, "SELECT * FROM `dashboard_info`  ORDER BY sn ASC");  
                                             ?>
                     <tr>
                       <td><?php echo $i; ?></td>
@@ -197,6 +196,8 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                       <td>
                         <a href="user-profile.php?userID=<?php echo $row['mobile']; ?>"><i class="fas fa-eye" style="font-size:25px;"></i></a>
                       </td>
+                    </tr>
+                  </tbody>
                       
               </div>
               </div>
