@@ -453,7 +453,7 @@ function getOpenCloseTiming($xc){
             </a>
           </li>
           <li class="nav-item menu-open">
-            <a href="dashboard_info.php" class="nav-link active">
+            <a href="dashboard_info.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard Info
