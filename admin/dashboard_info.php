@@ -24,18 +24,18 @@ if(isset($_GET['query'])){
     
     $search = "title LIKE '%$search%' OR description LIKE '%$search%'";
     
-    $result = mysqli_query($con,"select * from dashboard_info WHERE $search order by sn desc LIMIT $start_from, $num_results_on_page");
+    $result = mysqli_query($con,"SELECT * FROM `dashboard_info` WHERE $search order by sn desc LIMIT $start_from, $num_results_on_page");
     
-    $result_db = mysqli_query($con,"select COUNT(sn) from dashboard_info AS history where $search"); 
+    $result_db = mysqli_query($con,"SELECT COUNT(sn) from `dashboard_info` AS history where $search"); 
     
     $search_url_add = "&query=".$_REQUEST['query'];
     
 } else {
     
-    $result = mysqli_query($con,"select * from dashboard_info order by sn desc LIMIT $start_from, $num_results_on_page");
+    $result = mysqli_query($con,"SELECT * FROM `dashboard_info` order by sn desc LIMIT $start_from, $num_results_on_page");
     
     
-    $result_db = mysqli_query($con,"SELECT COUNT(sn) FROM dashboard_info"); 
+    $result_db = mysqli_query($con,"SELECT COUNT(sn) FROM `dashboard_info`"); 
     
 }
 
