@@ -79,7 +79,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
                     
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea  rows="3" type="text" name="description" value="" class="form-control" placeholder="Enter description" required/>
+                        <textarea  rows="3" type="text" name="description" value="" class="form-control" placeholder="Enter description" required></textarea>
                     </div>
                     
                     
